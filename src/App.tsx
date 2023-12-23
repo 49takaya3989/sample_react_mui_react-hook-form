@@ -1,34 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Box, Button, Container, Stack, TextField } from '@mui/material'
+import { SubmitHandler, useForm } from 'react-hook-form'
+
+type FormInputType = {
+  email: string,
+  name: string,
+  password: string,
+};
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { register, handleSubmit } = useForm<FormInputType>()
+
+  const onSubmit: SubmitHandler<FormInputType> = (data) => {
+    console.log(data)
+  }
+
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Container maxWidth="sm" sx={{ pt: 5 }}>
+      <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
+        <Stack spacing={3}>
+          <TextField
+            type="email"
+            id="email"
+            label="メールアドレス"
+            required
+            {...register('email')}
+            />
+          <TextField
+            id="name"
+            label="お名前"
+            required
+            {...register('name')}
+            />
+          <TextField
+            type="password"
+            id="password"
+            label="パスワード"
+            required
+            {...register('password')}
+            />
+          <Button
+            type='submit'
+            color="primary"
+            variant="contained"
+            size="large"
+            >
+            作成
+          </Button>
+        </Stack>
+      </Box>
+    </Container>
   )
 }
 
