@@ -14,12 +14,8 @@ import {
   Select,
   Stack,
   TextField
-} from '@mui/material'
-
-import {
-  SubmitHandler,
-  useForm
-} from 'react-hook-form'
+} from "@mui/material"
+import { SubmitHandler, useForm } from "react-hook-form"
 
 type FormInputType = {
   text: string,
@@ -45,7 +41,7 @@ function MuiRhf() {
           <TextField
             id="text"
             label="テキスト"
-            {...register('text')}
+            {...register("text")}
             />
           <FormControl>
             <InputLabel id="select">セレクトボックス</InputLabel>
@@ -54,7 +50,7 @@ function MuiRhf() {
               id="select"
               label="セレクトボックス"
               defaultValue="0"
-              {...register('select')}
+              {...register("select")}
               >
               <MenuItem value={"0"}>0</MenuItem>
               <MenuItem value={"1"}>1</MenuItem>
@@ -63,9 +59,9 @@ function MuiRhf() {
             </Select>
           </FormControl>
           <FormGroup>
-            <FormControlLabel control={<Checkbox {...register('rank1')} />} label="松" />
-            <FormControlLabel control={<Checkbox {...register('rank2')} />} label="竹" />
-            <FormControlLabel control={<Checkbox {...register('rank3')} />} label="梅" />
+            <FormControlLabel control={<Checkbox {...register("rank1")} />} label="松" />
+            <FormControlLabel control={<Checkbox {...register("rank2")} />} label="竹" />
+            <FormControlLabel control={<Checkbox {...register("rank3")} />} label="梅" />
           </FormGroup>
           <FormControl>
             <FormLabel id="radio">ラジオ</FormLabel>
@@ -73,13 +69,13 @@ function MuiRhf() {
               aria-labelledby="radio"
               name="radio"
             >
-              <FormControlLabel value="radio1" control={<Radio {...register('radio')} />} label="radio1" />
-              <FormControlLabel value="radio2" control={<Radio {...register('radio')} />} label="radio2" />
-              <FormControlLabel value="radio3" control={<Radio {...register('radio')} />} label="radio3" />
+              <FormControlLabel value="radio1" control={<Radio {...register("radio")} />} label="radio1" />
+              <FormControlLabel value="radio2" control={<Radio {...register("radio")} />} label="radio2" />
+              <FormControlLabel value="radio3" control={<Radio {...register("radio")} />} label="radio3" />
             </RadioGroup>
           </FormControl>
           <Button
-            type='submit'
+            type="submit"
             color="primary"
             variant="contained"
             size="large"
