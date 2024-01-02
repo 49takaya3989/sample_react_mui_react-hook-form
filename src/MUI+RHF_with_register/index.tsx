@@ -27,7 +27,7 @@ type FormInputType = {
   date: Date,
 };
 
-function MuiRhf() {
+function MuiRhfWithRegister() {
   const { register, handleSubmit } = useForm<FormInputType>()
 
   const onSubmit: SubmitHandler<FormInputType> = (data) => {
@@ -88,4 +88,4 @@ function MuiRhf() {
   )
 }
 
-export default MuiRhf
+export default MuiRhfWithRegister
