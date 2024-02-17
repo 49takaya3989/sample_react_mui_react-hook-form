@@ -45,6 +45,7 @@ function MuiRhfWithControllerAndZod() {
     handleSubmit,
     control,
   } = useForm<Schema>({
+    mode: 'onSubmit', // 初回validation時を検索ボタンが押されたタイミングに設定
     reValidateMode: 'onBlur', // 送信ボタンが押され、バリデーションに引っかかった後は、常に入力値のフォーカスが外れた際にバリデーションが走る
     resolver: zodResolver(schema), // 外部のバリデーションスキーマを適用する
     defaultValues: initFormVal(schema)
