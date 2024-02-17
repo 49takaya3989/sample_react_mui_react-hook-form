@@ -1,4 +1,4 @@
-import { FormControlLabel, FormLabel, Radio, RadioGroup, useTheme } from '@mui/material';
+import { FormControlLabel, Radio, RadioGroup, useTheme } from '@mui/material';
 import { FieldValues, UseControllerProps, useController } from 'react-hook-form';
 import { BaseFormProps } from './types';
 import { FormItemWrapper } from './FormItemWrapper';
@@ -25,8 +25,10 @@ function RhfRadio <T extends FieldValues>({
   const theme = useTheme();
 
   return (
-    <FormItemWrapper error={error}>
-      {label ? <FormLabel component="legend">{label}</FormLabel> : ''}
+    <FormItemWrapper
+      label={label}
+      error={error}
+    >
       <RadioGroup row {...field}>
         {options.map(option =>
           <FormControlLabel
@@ -40,7 +42,8 @@ function RhfRadio <T extends FieldValues>({
                 disabled={isSubmitting || disabled}
                 />
             }
-            label={option.label} />
+            label={option.label}
+            />
         )}
       </RadioGroup>
     </FormItemWrapper>

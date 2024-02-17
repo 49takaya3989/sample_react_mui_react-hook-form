@@ -22,10 +22,13 @@ function RhfOneCheckbox <T extends FieldValues>({
   const theme = useTheme();
 
   return (
-    <FormItemWrapper error={error}>
+    <FormItemWrapper
+      label={label}
+      error={error}
+    >
       <FormGroup>
         <FormControlLabel
-          label={label}
+          label={undefined}
           control={
             <Checkbox
               inputRef={ref}
@@ -38,6 +41,14 @@ function RhfOneCheckbox <T extends FieldValues>({
           }
           />
       </FormGroup>
+      {/* <Checkbox
+        inputRef={ref}
+        disabled={isSubmitting || disabled}
+        style={{
+          color: error ? theme.palette.error.main : undefined,
+        }}
+        {...rest}
+        /> */}
     </FormItemWrapper>
   )
 }

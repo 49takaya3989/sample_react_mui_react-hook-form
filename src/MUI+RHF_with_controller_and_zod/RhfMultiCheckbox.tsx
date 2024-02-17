@@ -1,7 +1,8 @@
 
-import { Box, Checkbox, FormControlLabel, FormGroup, FormHelperText, FormLabel, useTheme } from '@mui/material';
+import { Checkbox, FormControlLabel, FormGroup, useTheme } from '@mui/material';
 import { FieldValues, UseControllerProps, useController } from 'react-hook-form';
 import { BaseFormProps } from './types';
+import { FormItemWrapper } from './FormItemWrapper';
 
 export type MultiCheckboxOptions = { label: string; value: string; }
 
@@ -33,9 +34,10 @@ function RhfMultiCheckbox <T extends FieldValues>({
     }
 
     return (
-      <Box>
-        {label ? <FormLabel component="legend">{label}</FormLabel> : ''}
-        {error ? <FormHelperText error>{error.message}</FormHelperText> : ''}
+      <FormItemWrapper
+        label={label}
+        error={error}
+      >
         <FormGroup row>
           {options.map(option => (
             <FormControlLabel
@@ -54,7 +56,7 @@ function RhfMultiCheckbox <T extends FieldValues>({
               />
               ))}
         </FormGroup>
-      </Box>
+      </FormItemWrapper>
     )
 }
 

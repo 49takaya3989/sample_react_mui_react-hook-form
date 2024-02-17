@@ -1,4 +1,4 @@
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { FormControl, MenuItem, Select } from '@mui/material';
 import { FieldValues, UseControllerProps, useController } from 'react-hook-form';
 import { BaseFormProps } from './types';
 import { FormItemWrapper } from './FormItemWrapper';
@@ -24,19 +24,16 @@ function RhfSelect <T extends FieldValues>({
   } = useController({name, control});
 
   return (
-    <FormItemWrapper error={error}>
+    <FormItemWrapper
+      label={label}
+      error={error}
+    >
       <FormControl
         error={!!error}
         disabled={isSubmitting || disabled}
         fullWidth
-        >
-        <InputLabel id={name}>{label}</InputLabel>
-        <Select
-          labelId={name}
-          id={name}
-          label={label}
-          {...field}
-          >
+      >
+        <Select {...field}>
           {options.map(
             option => <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>
           )}

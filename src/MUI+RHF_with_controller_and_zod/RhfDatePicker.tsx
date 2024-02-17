@@ -22,10 +22,12 @@ function RhfDatePicker <T extends FieldValues>({
   } = useController({name, control});
 
   return (
-    <FormItemWrapper error={error}>
+    <FormItemWrapper
+      label={label}
+      error={error}
+    >
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DatePicker
-          label={label}
           format={FORMAT}
           onChange={(newValue) => onChange(newValue ? new Date(newValue).toISOString() : "")}
           disabled={isSubmitting || disabled}

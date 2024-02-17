@@ -95,7 +95,7 @@ function MuiRhfWithControllerAndZod() {
           <RhfSelect
             name="select"
             control={control}
-            label="セレクトボックス 必須"
+            label="セレクトボックス（必須）"
             options={selectOptions}
             />
 

@@ -28,10 +28,13 @@ function RhfTextField <T extends FieldValues>({
     } = useController({name, control});
 
     return (
-      <FormItemWrapper error={error}>
+      <FormItemWrapper
+        label={label}
+        error={error}
+      >
         <TextField
           type={type}
-          label={label}
+          placeholder={label}
           inputRef={ref}
           error={!!error}
           disabled={isSubmitting || disabled}

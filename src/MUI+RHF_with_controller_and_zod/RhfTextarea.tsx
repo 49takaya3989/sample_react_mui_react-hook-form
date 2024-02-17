@@ -28,11 +28,14 @@ function RhfTextarea <T extends FieldValues>({
     } = useController({name, control});
 
     return (
-      <FormItemWrapper error={error}>
+      <FormItemWrapper
+        label={label}
+        error={error}
+      >
         <TextField
-          label={label ?? ''}
           inputRef={ref}
           rows={rows}
+          placeholder={label}
           disabled={isSubmitting || disabled}
           error={!!error}
           multiline
