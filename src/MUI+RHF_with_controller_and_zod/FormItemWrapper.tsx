@@ -13,6 +13,7 @@ export const FormItemWrapper = ({
   label
 }: Props) => {
   const theme = useTheme();
+
   return (
     <Box>
       <FormLabel component="legend">{label}</FormLabel>

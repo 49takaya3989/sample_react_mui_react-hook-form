@@ -41,14 +41,6 @@ function RhfOneCheckbox <T extends FieldValues>({
           }
           />
       </FormGroup>
-      {/* <Checkbox
-        inputRef={ref}
-        disabled={isSubmitting || disabled}
-        style={{
-          color: error ? theme.palette.error.main : undefined,
-        }}
-        {...rest}
-        /> */}
     </FormItemWrapper>
   )
 }
