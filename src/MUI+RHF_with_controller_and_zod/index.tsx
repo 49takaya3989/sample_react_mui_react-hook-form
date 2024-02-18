@@ -26,19 +26,19 @@ const selectOptions: SelectOptions[] = [
   { label: "3", value: "3" },
   { label: "4", value: "4" },
   { label: "5", value: "5" },
-]
+] as const;
 
 const checkboxesOptions: MultiCheckboxOptions[] = [
   { label: "選択肢1", value: "sentakushi1" },
   { label: "選択肢2", value: "sentakushi2" },
   { label: "選択肢3", value: "sentakushi3" },
-]
+] as const;
 
 const radioOptions: RadioOptions[] = [
   { label: "ラジオ1", value: "radio1" },
   { label: "ラジオ2", value: "radio2" },
   { label: "ラジオ3", value: "radio3" },
-]
+] as const;
 
 function MuiRhfWithControllerAndZod() {
   const {
