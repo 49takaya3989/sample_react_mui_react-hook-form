@@ -15,7 +15,13 @@ import { useSampleForm } from './useSampleForm';
 
 function MuiRhfWithControllerAndZod() {
   const {
-    form: { handleSubmit, control, onSubmit },
+    form: {
+      handleSubmit,
+      control,
+      isSubmitting,
+      isValid,
+      onSubmit
+    },
     options: { selectOptions, checkboxesOptions, radioOptions }
   } = useSampleForm()
 
@@ -135,6 +141,7 @@ function MuiRhfWithControllerAndZod() {
             color="primary"
             variant="contained"
             size="large"
+            disabled={isSubmitting || !isValid}
             >
             ボタン
           </Button>

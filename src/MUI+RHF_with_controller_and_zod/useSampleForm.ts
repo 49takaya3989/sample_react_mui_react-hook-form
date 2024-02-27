@@ -31,6 +31,7 @@ export const useSampleForm = () => {
   const {
     handleSubmit,
     control,
+    formState: { isSubmitting, isValid }
   } = useForm<Schema>({
     mode: 'onSubmit', // 初回validation時を検索ボタンが押されたタイミングに設定
     reValidateMode: 'onBlur', // 送信ボタンが押され、バリデーションに引っかかった後は、常に入力値のフォーカスが外れた際にバリデーションが走る
@@ -45,6 +46,8 @@ export const useSampleForm = () => {
     form: {
       handleSubmit,
       control,
+      isSubmitting,
+      isValid,
       onSubmit,
     },
     options: {
