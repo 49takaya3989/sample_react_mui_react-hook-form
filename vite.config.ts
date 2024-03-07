@@ -9,6 +9,8 @@ export default defineConfig({
     // default
     // include: ['**/*.{test,spec}.ts']
 
-    // global: true
+    globals: true, // describe や it を import なしで使う
+    environment: 'jsdom', // テストファイルでレンダーした要素の定義
+    setupFiles: ['./setupTests.ts'], // setup に必要なファイルを定義するためのファイル
   }
 })
