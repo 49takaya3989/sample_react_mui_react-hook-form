@@ -23,6 +23,5 @@
     // global test code
     "types": ["vitest/globals"]
   },
-  "include": ["src", "setupTests.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
