@@ -1,28 +1,17 @@
-import {
-  Box,
-  Button,
-  Container,
-  Stack,
-} from "@mui/material"
-import RhfTextarea from './RhfTextarea';
-import RhfSelect from './RhfSelect';
-import RhfMultiCheckbox from './RhfMultiCheckbox';
-import RhfOneCheckbox from './RhfOneCheckbox';
-import RhfTextField from './RhfTextField';
-import RhfRadio from './RhfRadio';
-import RhfDatePicker from './RhfDatePicker';
-import { useSampleForm } from './useSampleForm';
+import { Box, Button, Container, Stack } from '@mui/material'
+import RhfTextarea from './RhfTextarea'
+import RhfSelect from './RhfSelect'
+import RhfMultiCheckbox from './RhfMultiCheckbox'
+import RhfOneCheckbox from './RhfOneCheckbox'
+import RhfTextField from './RhfTextField'
+import RhfRadio from './RhfRadio'
+import RhfDatePicker from './RhfDatePicker'
+import { useSampleForm } from './useSampleForm'
 
 function MuiRhfWithControllerAndZod() {
   const {
-    form: {
-      handleSubmit,
-      control,
-      isSubmitting,
-      isValid,
-      onSubmit
-    },
-    options: { selectOptions, checkboxesOptions, radioOptions }
+    form: { handleSubmit, control, isSubmitting, isValid, onSubmit },
+    options: { selectOptions, checkboxesOptions, radioOptions },
   } = useSampleForm()
 
   return (
@@ -31,31 +20,31 @@ function MuiRhfWithControllerAndZod() {
         <Stack spacing={3}>
           {/* テキスト */}
           <RhfTextField
-            type='text'
+            type="text"
             name="nullAbleText"
-            label='テキスト'
+            label="テキスト"
             control={control}
-            />
+          />
           <RhfTextField
-            type='text'
+            type="text"
             name="text"
-            label='テキスト（必須）'
+            label="テキスト（必須）"
             control={control}
-            />
+          />
 
           {/* 数値 */}
           <RhfTextField
             name="nullAbleNumber"
-            type='number'
-            label='数値'
+            type="number"
+            label="数値"
             control={control}
-            />
+          />
           <RhfTextField
             name="number"
-            type='number'
-            label='数値（必須）'
+            type="number"
+            label="数値（必須）"
             control={control}
-            />
+          />
 
           {/* セレクトボックス */}
           <RhfSelect
@@ -63,25 +52,25 @@ function MuiRhfWithControllerAndZod() {
             control={control}
             label="セレクトボックス"
             options={selectOptions}
-            />
+          />
           <RhfSelect
             name="select"
             control={control}
             label="セレクトボックス（必須）"
             options={selectOptions}
-            />
+          />
 
           {/* 単体チェックボックス */}
           <RhfOneCheckbox
             label="チェックボックス"
             name="nullAbleCheckbox"
             control={control}
-            />
+          />
           <RhfOneCheckbox
             label="チェックボックス（必須）"
             name="checkbox"
             control={control}
-            />
+          />
 
           {/* 複数チェックボックス */}
           <RhfMultiCheckbox
@@ -89,13 +78,13 @@ function MuiRhfWithControllerAndZod() {
             name="nullAbleCheckboxes"
             control={control}
             options={checkboxesOptions}
-            />
+          />
           <RhfMultiCheckbox
             label="複数チェックボックス（必須）"
             name="checkboxes"
             control={control}
             options={checkboxesOptions}
-            />
+          />
 
           {/* ラジオボタン */}
           <RhfRadio
@@ -103,39 +92,32 @@ function MuiRhfWithControllerAndZod() {
             name="nullAbleRadio"
             control={control}
             options={radioOptions}
-            />
+          />
           <RhfRadio
             label="ラジオボタン（必須）"
             name="radio"
             control={control}
             options={radioOptions}
-            />
+          />
 
           {/* 日程 */}
-          <RhfDatePicker
-            name="nullAbleDate"
-            label='日程'
-            control={control}
-            />
-          <RhfDatePicker
-            name="date"
-            label='日程（必須）'
-            control={control}
-            />
+          <RhfDatePicker name="nullAbleDate" label="日程" control={control} />
+          <RhfDatePicker name="date" label="日程（必須）" control={control} />
 
           {/* テキストエリア */}
           <RhfTextarea
             name="nullAbleTextarea"
-            label='テキストエリア'
+            label="テキストエリア"
             control={control}
             rows={5}
-            />
+          />
           <RhfTextarea
             name="textarea"
-            label='テキストエリア（必須）'
+            label="テキストエリア（必須）"
             control={control}
             rows={5}
-            />
+          />
+
           <Button
             type="submit"
             color="primary"
@@ -143,7 +125,7 @@ function MuiRhfWithControllerAndZod() {
             size="large"
             disabled={isSubmitting || !isValid}
             data-testid="formButton"
-            >
+          >
             ボタン
           </Button>
         </Stack>

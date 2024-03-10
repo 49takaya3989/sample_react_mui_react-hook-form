@@ -14,10 +14,12 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
+    "*.{ts?(x)}": [
       "prettier --write",
-      "eslint .",
-      "vitest run"
+      "eslint ."
+    ],
+    "*.test.{ts?(x)}": [
+      "vitest run --coverage"
     ]
   },
   "dependencies": {
