@@ -9,8 +9,6 @@ jobs:
     name: Run test codes
     if: |
       github.event.pull_request.draft == false
-      && !startsWith(github.head_ref, 'release')
-      && !startsWith(github.head_ref, 'doc')
     runs-on: ubuntu-latest
     defaults:
       run:
