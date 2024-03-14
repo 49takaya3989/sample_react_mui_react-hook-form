@@ -1,4 +1,4 @@
-name: GitHub Actions # ワークフローの名前
+name: Reviewdog # ワークフローの名前
 on:
   pull_request:
     types: [opened, reopened, synchronize] # opened: PRを作成, reopened:PRをCloseからOpenに変更, synchronize: PRを更新

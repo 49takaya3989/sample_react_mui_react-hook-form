@@ -1,5 +1,5 @@
 # アクション名
-name: Jest
+name: Test codes
 # タイミングを指定
 on:
   pull_request:
