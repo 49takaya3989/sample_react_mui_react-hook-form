@@ -10,9 +10,6 @@ jobs:
     if: |
       github.event.pull_request.draft == false
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ${{ env.WORKING_DIRECTORY }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
