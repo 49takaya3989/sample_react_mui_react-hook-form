@@ -4,8 +4,6 @@ name: Test codes
 on:
   pull_request:
     types: [opened, reopened, synchronize]
-env:
-  WORKING_DIRECTORY: application
 jobs:
   Test:
     name: Run test codes
