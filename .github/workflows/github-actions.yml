@@ -27,4 +27,3 @@ jobs:
         github_token: ${{ secrets.REVIEWDOG_GITHUB_API_TOKEN }}
         reporter: github-pr-review # Change reporter.
         eslint_flags: "src/"
-        reviewdog_version: latest
