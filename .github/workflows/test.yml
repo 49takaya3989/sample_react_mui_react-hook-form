@@ -1,0 +1,28 @@
+# アクション名
+name: Jest
+# タイミングを指定
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+env:
+  WORKING_DIRECTORY: application
+jobs:
+  Test:
+    name: Run test codes
+    if: |
+      github.event.pull_request.draft == false
+      && !startsWith(github.head_ref, 'release')
+      && !startsWith(github.head_ref, 'doc')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install packages
+        run: npm install
+
+      - name: Show coverage
+        run: npm run test:coverage -- --bail --maxWorkers=100% --watchAll=false
