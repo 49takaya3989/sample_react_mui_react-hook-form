@@ -24,7 +24,7 @@ jobs:
     - name: Initialize Reviewdog
       uses: reviewdog/action-setup@v1
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.REVIEWDOG_GITHUB_API_TOKEN }}
         reporter: github-pr-review # Change reporter.
         eslint_flags: "src/"
         reviewdog_version: latest
