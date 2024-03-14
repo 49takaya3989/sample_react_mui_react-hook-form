@@ -1,0 +1,4 @@
+runner:
+  eslint:
+    cmd: npm run --silent lint --config ./.eslintrc.js
+    format: eslint
