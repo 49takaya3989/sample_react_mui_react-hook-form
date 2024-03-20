@@ -10,8 +10,8 @@ import { useSampleForm } from './useSampleForm'
 
 function MuiRhfWithControllerAndZod() {
   const {
-    form: { handleSubmit, control, isSubmitting, isValid, onSubmit },
-    options: { selectOptions, checkboxesOptions, radioOptions },
+    form: { control, isSubmitting, isValid, handleSubmit, onSubmit, trigger },
+    options: { checkboxesOptions, radioOptions, selectOptions },
   } = useSampleForm()
 
   return (
@@ -101,8 +101,18 @@ function MuiRhfWithControllerAndZod() {
           />
 
           {/* 日程 */}
-          <RhfDatePicker name="nullAbleDate" label="日程" control={control} />
-          <RhfDatePicker name="date" label="日程（必須）" control={control} />
+          <RhfDatePicker
+            name="nullAbleDate"
+            label="日程"
+            trigger={trigger}
+            control={control}
+          />
+          <RhfDatePicker
+            name="date"
+            label="日程（必須）"
+            trigger={trigger}
+            control={control}
+          />
 
           {/* テキストエリア */}
           <RhfTextarea

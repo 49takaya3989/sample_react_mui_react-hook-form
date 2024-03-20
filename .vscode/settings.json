@@ -10,4 +10,7 @@
     "typescript",
     "typescriptreact"
   ],
+  "cSpell.words": [
+    "testid"
+  ],
 }

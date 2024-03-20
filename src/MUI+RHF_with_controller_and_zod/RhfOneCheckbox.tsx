@@ -1,12 +1,11 @@
-import { Checkbox, FormControlLabel, FormGroup, useTheme } from '@mui/material';
-import { FieldValues, UseControllerProps, useController } from 'react-hook-form';
-import { BaseFormProps } from './types';
-import { FormItemWrapper } from './FormItemWrapper';
+import { Checkbox, FormControlLabel, FormGroup, useTheme } from '@mui/material'
+import { FieldValues, UseControllerProps, useController } from 'react-hook-form'
+import { BaseFormProps } from './types'
+import { FormItemWrapper } from './FormItemWrapper'
 
-type Props<T extends FieldValues> =
-  UseControllerProps<T> & BaseFormProps
+type Props<T extends FieldValues> = UseControllerProps<T> & BaseFormProps
 
-function RhfOneCheckbox <T extends FieldValues>({
+function RhfOneCheckbox<T extends FieldValues>({
   control,
   disabled,
   label,
@@ -17,15 +16,12 @@ function RhfOneCheckbox <T extends FieldValues>({
     // それ以外はfieldから取り出して取得
     field: { ref, ...rest },
     fieldState: { error },
-    formState: { isSubmitting }
-  } = useController({name, control});
-  const theme = useTheme();
+    formState: { isSubmitting },
+  } = useController({ name, control })
+  const theme = useTheme()
 
   return (
-    <FormItemWrapper
-      label={label}
-      error={error}
-    >
+    <FormItemWrapper label={label} error={error}>
       <FormGroup>
         <FormControlLabel
           label={undefined}
@@ -36,13 +32,14 @@ function RhfOneCheckbox <T extends FieldValues>({
               style={{
                 color: error ? theme.palette.error.main : undefined,
               }}
+              data-testid={name}
               {...rest}
-              />
+            />
           }
-          />
+        />
       </FormGroup>
     </FormItemWrapper>
   )
 }
 
-export default RhfOneCheckbox;
+export default RhfOneCheckbox
