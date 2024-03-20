@@ -1,0 +1,21 @@
+# アクション名
+name: Test codes
+# タイミングを指定
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+jobs:
+  Test:
+    name: Run test codes
+    if: |
+      github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Show coverage
+        run: npm run test:coverage

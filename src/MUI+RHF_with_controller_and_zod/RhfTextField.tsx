@@ -1,18 +1,12 @@
-import { TextField } from '@mui/material';
-import {
-  useController,
-  FieldValues,
-  UseControllerProps
-} from 'react-hook-form';
-import { BaseFormProps } from './types';
-import { FormItemWrapper } from './FormItemWrapper';
+import { TextField } from '@mui/material'
+import { useController, FieldValues, UseControllerProps } from 'react-hook-form'
+import { BaseFormProps } from './types'
+import { FormItemWrapper } from './FormItemWrapper'
 
-type Props<T extends FieldValues> =
-  UseControllerProps<T> &
-  BaseFormProps &
-  { type: string; }
+type Props<T extends FieldValues> = UseControllerProps<T> &
+  BaseFormProps & { type: string }
 
-function RhfTextField <T extends FieldValues>({
+function RhfTextField<T extends FieldValues>({
   control,
   disabled,
   label,
@@ -24,25 +18,25 @@ function RhfTextField <T extends FieldValues>({
     // それ以外はfieldから取り出して取得
     field: { ref, ...rest },
     fieldState: { error },
-    formState: { isSubmitting }
-  } = useController({name, control});
+    formState: { isSubmitting },
+  } = useController({ name, control })
 
   return (
-    <FormItemWrapper
-      label={label}
-      error={error}
-    >
+    <FormItemWrapper label={label} error={error}>
       <TextField
         type={type}
         placeholder={label}
         inputRef={ref}
         error={!!error}
         disabled={isSubmitting || disabled}
+        inputProps={{
+          'data-testid': name,
+        }}
         fullWidth
         {...rest}
-        />
+      />
     </FormItemWrapper>
   )
 }
 
-export default RhfTextField;
+export default RhfTextField
