@@ -45,6 +45,7 @@ function RhfMultiCheckbox<T extends FieldValues>({
                 style={{
                   color: error ? theme.palette.error.main : undefined,
                 }}
+                checked={value.includes(option.value)}
                 data-testid={name + index}
               />
             }

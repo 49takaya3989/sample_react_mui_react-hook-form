@@ -32,6 +32,7 @@ function RhfOneCheckbox<T extends FieldValues>({
               style={{
                 color: error ? theme.palette.error.main : undefined,
               }}
+              checked={rest.value}
               data-testid={name}
               {...rest}
             />

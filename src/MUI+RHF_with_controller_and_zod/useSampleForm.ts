@@ -33,6 +33,8 @@ export const useSampleForm = () => {
     formState: { isSubmitting, isValid },
     handleSubmit,
     trigger,
+    reset,
+    getValues,
   } = useForm<Schema>({
     mode: 'onBlur', // 初回validation時を検索ボタンが押されたタイミングに設定
     reValidateMode: 'onBlur', // 送信ボタンが押され、バリデーションに引っかかった後は、常に入力値のフォーカスが外れた際にバリデーションが走る
@@ -40,7 +42,9 @@ export const useSampleForm = () => {
     defaultValues: initFormVal(schema),
   })
 
-  const onSubmit: SubmitHandler<Schema> = (data) => console.log('data', data)
+  const onSubmit: SubmitHandler<Schema> = () => {
+    reset()
+  }
 
   return {
     form: {
@@ -50,6 +54,7 @@ export const useSampleForm = () => {
       handleSubmit,
       onSubmit,
       trigger,
+      getValues,
     },
     options: {
       checkboxesOptions,
