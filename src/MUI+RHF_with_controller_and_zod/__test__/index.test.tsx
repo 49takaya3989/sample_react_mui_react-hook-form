@@ -509,3 +509,38 @@ describe('入力バリデーション', () => {
     })
   })
 })
+
+describe('送信', () => {
+  let user: UserEvent
+
+  beforeEach(() => {
+    user = userEvent.setup()
+    render(<MuiRhfWithControllerAndZod />)
+  })
+
+  it('送信完了後、フォームがリセットされている', async () => {
+    const textEl = screen.getByTestId('text')
+    const numberEl = screen.getByTestId('number')
+    const selectBoxEl = within(screen.getByTestId('select')).getByRole(
+      'combobox'
+    )
+    const checkboxEl = screen.getByTestId('checkbox')
+    const multiCheckboxEl = screen.getByTestId('checkboxes0')
+    const dateEl = within(screen.getByTestId('date')).getByRole('textbox')
+    const radioEl = screen.getByTestId('radio0')
+    const textareaEl = screen.getByTestId('textarea')
+    const formButtonEl = screen.getByTestId('formButton')
+
+    await user.type(textEl, 'test')
+    await user.type(numberEl, '1')
+    await user.click(selectBoxEl)
+    await user.click(await screen.getByRole('option', { name: 'セレクト1' }))
+    await user.click(checkboxEl)
+    await user.click(multiCheckboxEl)
+    await user.type(dateEl, '2024/04/01')
+    await user.click(radioEl)
+    await user.type(textareaEl, 'test')
+    await user.tab()
+    await expect(formButtonEl).not.toBeDisabled()
+  })
+})
